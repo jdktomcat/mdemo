@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
     <!-- 属性配置 -->
     <properties resource="jdbc.properties">
 
@@ -55,8 +56,22 @@
         -->
         <setting name="returnInstanceForEmptyRow" value="false"/>
 
-
+        <!--
+            指定 Mybatis 创建具有延迟加载能力的对象所用到的代理工具。
+            默认为JAVASSIST.
+        -->
+        <setting name="proxyFactory" value="CGLIB | JAVASSIST" />
     </settings>
+
+    <!-- 类型别名 -->
+    <typeAliases>
+        <typeAlias alias="StatisticsInfo" type="com.xdd.mdemo.pack.blog.entry.StatisticsInfo"/>
+    </typeAliases>
+
+    <!-- 类型处理器-->
+    <typeHandlers>
+        <typeHandler handler="com.xdd.mdemo.pack.blog.handler.ExampleTypeHandler"/>
+    </typeHandlers>
 
     <environments default="development">
         <environment id="development">
