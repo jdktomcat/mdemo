@@ -30,7 +30,6 @@
         </environment>
     </environments>
 
-
     <mappers>
         <mapper resource="com/xdd/example/conf/mapper/StatisticsMapper.xml"/>
     </mappers>
