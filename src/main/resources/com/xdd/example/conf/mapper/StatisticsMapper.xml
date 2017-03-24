@@ -20,7 +20,7 @@
     <result column="store_manager_tel"   property="storeManagerTel"  jdbcType="VARCHAR"   />
   </resultMap>
 
-  <insert id="insertInfo" useGeneratedKeys="true">
+  <insert id="insertInfo" useGeneratedKeys="true" keyProperty="id">
     insert into t_statistics_info (
       create_date,
       store_id,
