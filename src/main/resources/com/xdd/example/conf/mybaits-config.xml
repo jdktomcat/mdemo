@@ -12,10 +12,50 @@
     <settings>
         <!-- 该配置影响的所有映射器中配置的缓存的全局开关 默认值为true-->
         <setting name="cacheEnabled" value="true"/>
-        <!-- 延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。特定关联关系中可通过设置fetchType属性来覆盖该项的开关状态。默认值为false-->
+        <!--
+             延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。
+             特定关联关系中可通过设置fetchType属性来覆盖该项的开关状态。默认值为false
+        -->
         <setting name="lazyLoadingEnabled" value="false"/>
-        <!-- When enabled, any method call will load all the lazy properties of the object. Otherwise, each property is loaded on demand -->
+        <!--
+             当开启时,任意方法的调用将加载对象所有延迟加载的属性
+             否则的话属性将在需要的时候加载.
+             When enabled, any method call will load all the lazy properties of the object.
+             Otherwise, each property is loaded on demand
+        -->
         <setting name="aggressiveLazyLoading" value="false"/>
+        <!--
+            配置默认的执行器。
+            SIMPLE 就是普通的执行器;
+            REUSE 执行器会重用预处理语句（prepared statements）;
+            BATCH 执行器将重用语句并执行批量更新。
+        -->
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <!--
+            MyBatis 利用本地缓存机制（Local Cache）防止循环引用（circular references）和加速重复嵌套查询。
+            默认值为 SESSION，这种情况下会缓存一个会话中执行的所有查询。
+            若设置值为 STATEMENT，本地会话仅用在语句执行上，对相同 SqlSession 的不同调用将不会共享数据。
+        -->
+        <setting name="localCacheScope" value="SESSION"/>
+
+        <!--
+            指定当结果集中值为null的时候是否调用映射对象的setter（map 对象时为 put）方法，
+            这对于有 Map.keySet() 依赖或 null 值初始化的时候是有用的。
+            注意基本类型（int、boolean等）是不能设置成 null 的。
+        -->
+        <setting name="callSettersOnNulls" value="false" />
+
+        <!--
+            当一条记录所有返回列为null时,MyBatis默认返回null.
+            当此属性开启时,MyBatis将返回一个空对象.
+            MyBatis, by default, returns null when all the columns of a returned row are NULL.
+            When this setting is enabled, MyBatis returns an empty instance instead.
+            Note that it is also applied to nested results (i.e. collectioin and association).
+            Since: 3.4.2
+        -->
+        <setting name="returnInstanceForEmptyRow" value="false"/>
+
+
     </settings>
 
     <environments default="development">
