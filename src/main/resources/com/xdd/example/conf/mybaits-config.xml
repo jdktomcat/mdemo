@@ -114,6 +114,10 @@
     </databaseIdProvider>
 
     <mappers>
+        <!--
         <mapper resource="com/xdd/example/conf/mapper/StatisticsMapper.xml"/>
+        <mapper class="com.xdd.mdemo.pack.blog.mappers.StatisticsMapper"/>
+        -->
+        <package name="com.xdd.mdemo.pack.blog.mappers"/>
     </mappers>
 </configuration>

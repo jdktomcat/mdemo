@@ -97,7 +97,7 @@
   </insert>
 
   <!-- 获取最近更新时间 -->
-  <select id="getStatisticsMaxDate" resultType="java.util.Date">
+  <select id="getStatisticsMaxDate" resultType="java.util.Date" statementType="PREPARED">
       SELECT MAX(create_date) FROM t_statistics_info
   </select>
 
